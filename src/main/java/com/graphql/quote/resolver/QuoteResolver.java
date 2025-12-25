@@ -3,6 +3,7 @@ package com.graphql.quote.resolver;
 import com.graphql.quote.dto.Contact;
 import com.graphql.quote.dto.QuoteDTO;
 import com.graphql.quote.dto.QuoteNumber;
+import com.graphql.quote.dto.Status;
 import com.graphql.quote.service.QuoteService;
 import com.graphql.util.Util;
 import lombok.RequiredArgsConstructor;
@@ -32,14 +33,18 @@ public class QuoteResolver {
     public List<List<QuoteNumber>> quoteNumber(List<QuoteDTO> quotes) {
         log.info("Batch mapping for quotesNumber called for {} quotes", quotes.size());
          return quotes.stream().map(QuoteDTO::getId)
-                 .map(id -> Arrays.asList(QuoteNumber.builder().quoteNumber(Util.getQuoteNumber(id.toString())).build())).collect(Collectors.toList());
+                 .map(id -> Arrays.asList(QuoteNumber.builder().quoteNumber(Util.getQuoteNumber(id.toString())).build()))
+                 .collect(Collectors.toList());
     }
 
     @BatchMapping(typeName = "Quote", field = "contactNumber")
     public List<Contact> contactNumber(List<QuoteDTO> quotes) {
         log.info("Batch mapping for contactNumber called for {} quotes", quotes.size());
         return quotes.stream().map(QuoteDTO::getId)
-                .map(id -> Contact.builder().contactNumber(Util.getContactNumber(id.toString())).build()).collect(Collectors.toList());
+                .map(id -> Contact.builder().
+                        contactNumber(Util.getContactNumber(id.toString()))
+                        .status(Status.ACTIVE).build())
+                .collect(Collectors.toList());
     }
 
 }

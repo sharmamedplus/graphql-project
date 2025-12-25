@@ -53,4 +53,10 @@ type QuoteNumber {
 
 type Contact {
     contactNumber:String
+    status:Status
+}
+
+enum Status{
+    ACTIVE
+    INACTIVE
 }
