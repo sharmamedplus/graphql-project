@@ -1,4 +1,4 @@
-package com.graphql.learn;
+package com.graphql;
 
 import com.graphql.learn.entities.Book;
 import com.graphql.learn.services.BookService;

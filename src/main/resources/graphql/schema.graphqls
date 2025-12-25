@@ -1,3 +1,9 @@
+scalar UUID
+scalar DateTime
+scalar BigDecimal
+scalar JSON
+scalar Date
+
 type Mutation{
 createBook(book:BookInput):Book
 }
@@ -6,7 +12,7 @@ type Query{
 
 allBooks:[Book]
 getBook(bookId:Int):Book
-
+getQuotes:[Quote]
 }
 
 type Book{
@@ -27,4 +33,13 @@ input BookInput{
     author:String
     price:Float
     pages:Int
+}
+
+type Quote{
+    id:UUID!
+    orgs:[UUID]
+    score:Float
+    created:DateTime
+    price:BigDecimal
+    attributes:JSON
 }
