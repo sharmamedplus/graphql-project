@@ -31,7 +31,7 @@ public class QuoteDTO {
     private BigDecimal price;
 
     private Map<String, Object> attributes;
-    private List<Subject> subjects;
+    private List<QuoteDTO.Subject> subjects;
 
 
     @Value

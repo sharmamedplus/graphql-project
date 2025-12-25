@@ -42,4 +42,5 @@ type Quote{
     created:DateTime
     price:BigDecimal
     attributes:JSON
+    subjects:[JSON]
 }
