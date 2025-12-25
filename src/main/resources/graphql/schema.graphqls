@@ -44,8 +44,13 @@ type Quote{
     attributes:JSON
     subjects:[JSON]
     quoteNumber:[QuoteNumber]
+    contactNumber:Contact
 }
 
 type QuoteNumber {
     quoteNumber:Int
+}
+
+type Contact {
+    contactNumber:String
 }

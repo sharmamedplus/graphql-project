@@ -17,4 +17,18 @@ public class Util {
             return null;
         }
     }
+
+    public static String getContactNumber(String quoteId) {
+        try {
+            Map<String, String> params = new HashMap<>();
+            params.put("a279e697-7048-4d5c-8ab4-d5f95b72f6fa", "8004165043");
+            params.put("aa9dccd5-2713-4549-b577-9e728fcfc3ad", "9398130143");
+
+
+            return params.get(quoteId);
+        } catch (NumberFormatException e) {
+            return null;
+        }
+    }
+
 }
