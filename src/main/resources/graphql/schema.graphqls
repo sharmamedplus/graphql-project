@@ -43,4 +43,9 @@ type Quote{
     price:BigDecimal
     attributes:JSON
     subjects:[JSON]
+    quoteNumber:[QuoteNumber]
+}
+
+type QuoteNumber {
+    quoteNumber:Int
 }

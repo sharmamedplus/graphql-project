@@ -32,7 +32,7 @@ public class QuoteDTO {
 
     private Map<String, Object> attributes;
     private List<QuoteDTO.Subject> subjects;
-
+    private List<QuoteNumber> quoteNumber;
 
     @Value
     @Builder(toBuilder = true)
